@@ -50,6 +50,8 @@ virtual host를 이용하기 위한 설정 디렉토리
 
 000-default.conf -> ../sites-available/000-default.conf 와 같이 심볼릭 링크를 이용하여 sites-available 디렉토리 파일을 참조하는 방식으로 사용되어진다.
 
+ln -s ../sites-available/000-default.conf 000-default.conf 
+
 
 
 /etc/apache2/mods-available/, /etc/apache2/mods-enabled/
