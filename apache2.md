@@ -57,3 +57,51 @@ ln -s ../sites-available/000-default.conf 000-default.conf
 /etc/apache2/mods-available/, /etc/apache2/mods-enabled/
 
 모듈 설정 디렉토리
+
+## Apache2 로그
+
+/var/log/apache2 디렉토리
+
+## Apache2 시작/중지
+
+root 로그인
+
+service apache2 start
+
+service apache2 stop
+
+## Apache2 버전 확인
+apachectl -version
+
+## Apache2 모듈 사용 설정 확인
+
+apachectl -M
+
+## Apache2 Reverse Proxy 설정
+
+mod_proxy 모듈을 이용해 Reverse Proxy 설정을 하겠다.
+
+root로 로그인
+
+a2enmod 명령어를 통해 아래 모듈 활성화
+
+1
+2
+3
+4
+a2enmod proxy
+a2enmod proxy_http
+a2enmod proxy_balancer
+a2enmod lbmethod_byrequests
+cs
+활성화를 한다고 해서 모듈을 다운로드 받고 설치하는 작업을 하는게 아니다.
+
+단지 mods-available 디렉토리에 존재하는 모듈을 사용 가능한 상태로 만들기 위해 mods-enabled 하위에 심볼릭 링크를 생성한다.
+
+
+
+Apache 서버 재시작 하자.
+
+root로 로그인
+
+service apache2 restart
